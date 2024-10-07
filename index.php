@@ -1,4 +1,20 @@
-<?php ?>
+<?php
+
+// Available characters
+$characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?~@#-_+<>[]{}';
+
+
+$generatePassword = function ($length) use ($characters) {
+    $password = "";
+    for ($i = 0; $i < $length; $i++) {
+        //Generate random character and push it in the string $password
+        $password .= $characters[rand(0, strlen($characters))];
+    }
+
+    return $password;
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +46,13 @@
                     </label>
                     <input type="number" class="form-control" name="length" id="password-length">
                 </form>
+            </div>
+            <div class="col-12 text-center">
+                <?php
+                if (isset($_GET["length"])) {
+                    echo ($generatePassword($_GET["length"]));
+                }
+                ?>
             </div>
         </div>
     </div>
