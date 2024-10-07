@@ -15,6 +15,24 @@
 </head>
 
 <body>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-12">
+                <h1>
+                    PASSWORD GENERATOR
+                </h1>
+            </div>
+            <div class="col">
+                <form class="bg-primary p-4" action="./index.php" method="GET">
+                    <label for="password-length" class="text-light mb-3">
+                        Inserisci la lunghezza della password che vuoi
+                        generare
+                    </label>
+                    <input type="number" class="form-control" name="length" id="password-length">
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 
