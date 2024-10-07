@@ -1,6 +1,15 @@
 <?php
+require_once __DIR__ . "/functions/function.php";
 
-require_once __DIR__ . "/functions/function.php"
+session_start();
+
+//Generate password if the length is set and redirect to generatedPassword.php
+if (isset($_GET["length"])) {
+    $passwordLength = $_GET["length"];
+    $_SESSION["password"] = $generatePassword($passwordLength);
+    header("Location: http://localhost:8888/php-strong-password-generator/generatedPassword.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -33,13 +42,6 @@ require_once __DIR__ . "/functions/function.php"
                     </label>
                     <input type="number" class="form-control" name="length" id="password-length">
                 </form>
-            </div>
-            <div class="col-12 text-center">
-                <?php
-                if (isset($_GET["length"])) {
-                    echo ($generatePassword($_GET["length"]));
-                }
-                ?>
             </div>
         </div>
     </div>
